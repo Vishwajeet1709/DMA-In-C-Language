@@ -24,5 +24,6 @@ int main()
         cout<<str[i];
         i++;
     }
+    free(str);
     return 0;
 }
