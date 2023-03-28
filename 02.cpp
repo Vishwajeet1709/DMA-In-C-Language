@@ -25,5 +25,6 @@ int main()
         cin>>str[i];
     }
     cout<<Average(str,n)<<" is the average of entered data values. \n";
+    free(str);
     return 0;
 }
