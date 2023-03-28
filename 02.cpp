@@ -3,28 +3,33 @@ enter then create an array dynamically to accommodate the data values. Now take
 the input from the user and display the average of data values.*/
 #include<iostream>
 using namespace std;
-float Average (int *arr, int n)
+float Average (int *arr, int size)
 {
     int i, sum=0;
-    for(i=0; i<n ; i++)
+    for(i=0; i<size ; i++)
     {
         sum += arr[i];
     }
-    return(sum/n);
+    return(sum/size);
 }
 
 int main()
 {
     cout<<"How many data values would you like to enter : ";
-    int n;
-    cin>>n;
-    int *str = (int*)malloc(n*sizeof(int));
+    int size;
+    cin>>size;
+    int *ptr = (int*)calloc(size,sizeof(int));
+    if(ptr == NULL)
+        {
+            cout<<"Memory Allocation Faild!!";
+            return 0;
+        }
     cout<<"Enter data values : ";
-    for(int i=0; i<n ; i++)
+    for(int i=0; i<size ; i++)
     {
-        cin>>str[i];
+        cin>>ptr[i];
     }
-    cout<<Average(str,n)<<" is the average of entered data values. \n";
-    free(str);
+    cout<<Average(ptr,size)<<" is the average of entered data values. \n";
+    free(ptr);
     return 0;
 }

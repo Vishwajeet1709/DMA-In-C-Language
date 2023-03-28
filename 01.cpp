@@ -13,6 +13,11 @@ int main()
         c = getc(stdin);
         j++;
         str = (char*)realloc(str, j * sizeof(char));
+        if(str == NULL)
+        {
+            cout<<"Memory Allocation Faild!!";
+            return 0;
+        }
         str[i] = c;
         i++;
     }
